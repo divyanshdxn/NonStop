@@ -77,7 +77,7 @@ export const Navbar = () => {
           <NavLink href={"learn"}>Learn</NavLink>
         </li>
         <li>
-          <NavLink href={"compete"}>Compete</NavLink>
+          <NavLink href={"competitions"}>Competitions</NavLink>
         </li>
       </ul>
       <div className="hidden lg:block">
