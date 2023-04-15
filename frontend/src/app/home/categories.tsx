@@ -11,7 +11,7 @@ interface Props {
 }
 export function Categorycard({categoryItem} : Props){
     return(
-            <div><a href="https://www.mythrillfiction.com/the-dark-rider" target="_blank">
+            <div><a href="" target="_blank">
                 <div className="categorycard">
                     <div className="wrapper">
                     <img src={categoryItem.imageurl} className="cover-image" />
