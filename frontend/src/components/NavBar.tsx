@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { baseUrl } from "../app/api/hello/route";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 interface NavLinkProps {
   children: React.ReactNode;
@@ -30,6 +31,8 @@ const NavLink = ({ href, children }: NavLinkProps) => {
 export const Navbar = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [,, removeCookie] = useCookies(['connect.sid']);
+
 
   useEffect(() => {
     axios.get(`${baseUrl}/account`,{withCredentials: true}).then((res) => {
@@ -38,10 +41,10 @@ export const Navbar = () => {
   }, []); 
 
   const logout = () => {
-    axios.post(`${baseUrl}/logout`).then(res => {
-      console.log(res)
-      setIsLoggedIn(res.data.loggedIn)
+    axios.post(`${baseUrl}/logout`).then(() => {
+    setIsLoggedIn(false)
     })
+    removeCookie('connect.sid')
   }  
 
   return (
