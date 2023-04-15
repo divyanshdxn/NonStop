@@ -1,0 +1,20 @@
+.Container{
+    display: flex;
+    width: 90%;
+
+}
+.Introtext{
+    display: flex;
+    flex-wrap: wrap;
+    width:65%
+}
+.Categories{
+    /* flex flex-wrap overflow-hidden justify-around m-2 md:p-10 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:right;
+    gap: 0.5rem;
+    padding: 2px;
+    margin: 1px;
+    width: 35%;
+}
