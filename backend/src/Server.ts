@@ -10,6 +10,7 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { PrismaClient } from "@prisma/client";
 import { googleOAuthStratergy } from "@/stratergy";
 import { UserToken } from "@/types/Index";
+import '@/types/express'
 
 const app = express();
 const prisma = new PrismaClient();
@@ -45,10 +46,10 @@ async function main() {
             img: currUser.img,
           };
           done(null, user);
-          console.log("DONE")
+          console.log("DONE");
         } catch (error: any) {
           done(error.toString());
-          console.log("ERROR", error)
+          console.log("ERROR", error);
         }
       }
     )
@@ -76,6 +77,13 @@ async function main() {
       saveUninitialized: false,
     })
   );
+
+  app.use((_req, res, next) => {
+    res.locals = {
+      prisma,
+    };
+    next();
+  });
 
   app.use(passport.initialize());
   app.use(passport.session());
