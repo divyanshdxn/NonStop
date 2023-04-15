@@ -9,30 +9,42 @@ datasource db {
 }
 
 model User {
-  id        String  @id
+  id        String    @id
   img       String?
-  email     String? @unique
+  email     String?   @unique
   name      String?
   events    Event[]
-  profile   Profile? 
+  profile   Profile?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
 }
 
 model Profile {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   dob       DateTime
   roleTags  Role[]
   gender    Gender
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  user      User    @relation(fields: [userId], references: [id])
-  userId    String  @unique
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
 }
 
 model Event {
-  id              Int      @id @default(autoincrement())
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @default(now())
-  createdBy       User     @relation(fields: [createdByUserId], references: [id])
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String
+  type          EventType
+  img           String
+  location      String?
+  locationCoord String?
+  fee           Int
+  startDate     DateTime
+  endDate       DateTime
+  sports        String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime?
+  createdBy       User   @relation(fields: [createdByUserId], references: [id])
   createdByUserId String
 }
 
@@ -48,4 +60,11 @@ enum Gender {
   MALE
   FEMALE
   PREFER_NOT_TO_SAY
+}
+
+enum EventType {
+  TOURNAMENT
+  SELECTION
+  FRIENDLY
+  FUNDRAISER
 }

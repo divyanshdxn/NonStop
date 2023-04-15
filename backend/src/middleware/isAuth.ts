@@ -7,9 +7,6 @@ export const isAuth: RequestHandler = async (req, res, next) => {
       where: {
         id: req.user.id,
       },
-      include: {
-        profile: true,
-      },
     });
     res.locals.user = profile;
     next();
