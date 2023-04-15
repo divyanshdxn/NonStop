@@ -1,8 +1,21 @@
 "use client";
 
+/**
+ * interface CourseDetails {
+  name: string;
+  desc: string;
+  price: number;
+  rating: number;
+  tags: string[];
+  instructor: string;
+  length: string;
+}
+
+ */
+
 import { useState } from "react";
 import { FaBook, FaLocationArrow } from "react-icons/fa";
-import { CoachCard, CoachDetails, coaches } from "./CoachCard";
+import { CoachCard, coaches } from "./CoachCard";
 
 export default function Mentorship() {
   const [sports, setSports] = useState("All");
@@ -51,7 +64,11 @@ export default function Mentorship() {
         </div>
       </section>
 
-      <h1 className="text-3xl p-16">Choose from 3,988 Football teachers</h1>
+      <div className="p-16">
+          <h1 className="text-3xl">Get mentorship from best coaches</h1>
+      <p className="text-gray-400 mt-4">Found 3443 results:</p>
+      </div>
+    
 
       <section className="flex flex-row flex-wrap gap-y-12 gap-x-4 justify-evenly ">
         {coaches.map(coach => <CoachCard coachDetails={coach} />)}
