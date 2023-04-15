@@ -37,8 +37,7 @@ export const CoachCard = ({ coachDetails }: Props) => {
           ))}
         </div>
 
-        <p className="px-4 py-2 mt-4 bg-green-600 rounded-full">Book a Demo</p>
-
+        <a href=""><button className="px-4 py-2 mt-4 bg-green-600 rounded-full w-full">Book a Demo</button></a>
       </div>
     </div>
   );
