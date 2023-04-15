@@ -36,7 +36,7 @@ const SocialLink = ({
 
 export function CompetitionCard({ competitionItem }: Props) {
   return (
-    <div className="bg-black shadow border border-transparent hover:border-green-600 rounded-2xl w-full w-[36rem] p-8">
+    <div className="bg-black shadow border border-transparent hover:border-green-600 rounded-2xl w-full md:w-[36rem] p-8">
       
       <div className="flex flex-col md:flex-row justify-between">
         <div>
