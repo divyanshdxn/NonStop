@@ -24,9 +24,12 @@ router.get("/account", isAuth, (_req, res) => {
 router.post("/logout", isAuth, function (req, res, next) {
   req.logout(function (err) {
     if (err) {
+      console.log(err.toString())
       return next(err);
     }
-    res.redirect(`${process.env.CLIENT_URL}`);
+    res.clearCookie("connect.sid")
+    console.log("Logged out`")
+      res.redirect(`${process.env.CLIENT_URL}`);
   });
 });
 

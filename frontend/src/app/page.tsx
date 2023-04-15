@@ -78,10 +78,10 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex w-10/12 justify-center">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row mt-48">
           <div className="Introtext">
             <div className="md:p-32 md:w-4/5">
-              <h3 className="text-4xl font-bold">
+              <h3 className="text-6xl font-bold">
                 Unleash the Sports Person within You!{" "}
               </h3>
               <p className="mt-12">Connecting Talents,</p>
