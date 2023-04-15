@@ -15,7 +15,7 @@ interface Props {
 export const CoachCard = ({ coachDetails }: Props) => {
   const { name, desc, rating, price, exclusives } = coachDetails;
   return (
-    <div className="w-96 border border-gray-500 rounded-3xl">
+    <div className="w-96 border border-gray-500 rounded-3xl flex-shrink-0">
       <img
         className="w-96 h-64 rounded-3xl"
         src="https://i.pinimg.com/564x/97/5d/00/975d00076330b10dd69f0312136e5b81.jpg"
