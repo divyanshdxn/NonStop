@@ -10,7 +10,7 @@ declare global {
     }
     export interface Locals {
       prisma: PrismaClient;
-      user?: Prisma.UserGetPayload<{ include: { profile: true } }> | null;
+      user?: Prisma.UserGetPayload<{}> | null;
     }
   }
 }

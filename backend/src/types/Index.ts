@@ -6,4 +6,4 @@ export type UserToken = {
   img: string | null;
 };
 
-export type TypedRequest<T> = Request<{}, {}, T>;
+export type TypedRequest<T, Params = {}> = Request<Params,{}, T>;
