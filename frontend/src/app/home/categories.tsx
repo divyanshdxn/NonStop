@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './categories.css'
 import {BsFillCalendarDateFill, BsFillPeopleFill} from 'react-icons/bs'
 
@@ -5,6 +6,7 @@ export interface CategoryItem {
     imageurl: string;
     texturl: string
     highlightimageurl: string;
+    href: string
 }
 export interface EventItem {
     imageurl: string;
@@ -21,15 +23,15 @@ interface EventProps {
 }
 export function Categorycard({categoryItem} : CategoryProps){
     return(
-            <div><a href="" target="_blank">
+            <Link href={categoryItem.href}>
                 <div className="categorycard">
                     <div className="wrapper">
                     <img src={categoryItem.imageurl} className="cover-image" />
                     </div>
-                    <img src={categoryItem.texturl} className="title" />
-                    <img src={categoryItem.highlightimageurl} className="character" />
+                    <img src={""} className="title" />
+                    <img src={categoryItem.texturl} className="character" />
                 </div>
-            </a></div>
+            </Link>
     )
 }
 
