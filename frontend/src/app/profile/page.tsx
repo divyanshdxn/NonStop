@@ -1,4 +1,5 @@
 export default function Profile() {
+  const {name, username, mail, imageUrl, FacebookUrl, InstagramUrl, TwitterUrl, LinkedInUrl } = googleCredentials
   return (
     <>
       <html>
@@ -127,7 +128,7 @@ export default function Profile() {
                             >
                               <img
                                 loading="lazy"
-                                src="https://lh3.googleusercontent.com/a/AATXAJwPpgojvBmQxR_lnW2mI83uj16xoH_3QD70MjpY=s96-c"
+                                src={imageUrl}
                                 style={{
                                   outlineColor: "rgb(136, 186, 229)",
                                   boxSizing: "border-box",
@@ -215,7 +216,7 @@ export default function Profile() {
                                     position: "relative",
                                   }}
                                 >
-                                  @deepanshupra8892 {/*TODO: Change Here*/}
+                                  @+{username} {/*TODO: Change Here*/}
                                 </div>
                               </div>
                               <h2
@@ -231,7 +232,7 @@ export default function Profile() {
                                   lineHeight: "29px",
                                 }}
                               >
-                                SOUMYA RANJAN
+                                {name}
                               </h2>
                               <p
                                 style={{
@@ -263,7 +264,7 @@ export default function Profile() {
                                   boxSizing: "border-box",
                                 }}
                               >
-                                soumyaranjan1812@gmail.com
+                                {mail}
                               </p>
 
                               <div
@@ -286,7 +287,7 @@ export default function Profile() {
                                 >
                                   <a
                                     target="_blank"
-                                    href="https://www.facebook.com/soumya/"
+                                    href={FacebookUrl}
                                     style={{
                                       outlineColor: "rgb(66, 170, 255)",
                                       color: "rgb(66, 170, 255)",
@@ -322,7 +323,7 @@ export default function Profile() {
                                   </a>
                                   <a
                                     target="_blank"
-                                    href="https://twitter.com/PratikDeepanshu"
+                                    href={TwitterUrl}
                                     style={{
                                       outlineColor: "rgb(66, 170, 255)",
                                       color: "rgb(66, 170, 255)",
@@ -358,7 +359,7 @@ export default function Profile() {
                                   </a>
                                   <a
                                     target="_blank"
-                                    href="https://www.instagram.com/deepanshu_pratik/"
+                                    href={InstagramUrl}
                                     style={{
                                       outlineColor: "rgb(66, 170, 255)",
                                       color: "rgb(66, 170, 255)",
@@ -394,7 +395,7 @@ export default function Profile() {
                                   </a>
                                   <a
                                     target="_blank"
-                                    href="https://www.linkedin.com/in/deepanshu-pratik-41b6641a5/"
+                                    href={LinkedInUrl}
                                     style={{
                                       outlineColor: "rgb(66, 170, 255)",
                                       color: "rgb(66, 170, 255)",
