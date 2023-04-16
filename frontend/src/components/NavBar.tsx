@@ -37,6 +37,7 @@ export const Navbar = () => {
   useEffect(() => {
     axios.get(`${baseUrl}/account`,{withCredentials: true}).then((res) => {
       setIsLoggedIn(res.data.loggedIn);
+      console.log(res.data);
     });
   }, []); 
 
@@ -114,9 +115,9 @@ export const Navbar = () => {
               <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
                 Soumya Ranjan
               </span>
-              <span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
+              <NavLink href={"profile"}><span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
                 View Profile
-              </span>
+              </span></NavLink>
             </span>
             <button className="bg-green-600 px-4 py-2 rounded-full" onClick={_ => logout()}>Logout</button>
           </div>

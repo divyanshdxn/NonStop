@@ -1,5 +1,5 @@
-export default function Profile() {
-  const {name, username, mail, imageUrl, FacebookUrl, InstagramUrl, TwitterUrl, LinkedInUrl } = googleCredentials //TODO: get all data from people.
+export default function Profile(googleCredentials:any) {
+  const {name, username, mail, imageUrl, FacebookUrl, InstagramUrl, TwitterUrl, LinkedInUrl } =  googleCredentials //TODO: get all data from people.
   return (
     <>
       <html>

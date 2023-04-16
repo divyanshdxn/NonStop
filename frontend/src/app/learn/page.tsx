@@ -50,7 +50,7 @@ export default function Learn() {
         </div>
       </section>
 
-      <h1 className="text-3xl p-16">Choose from 3,988 {sports} courses</h1>
+      <h1 className="text-3xl p-16">Choose from {courses.length} {sports} courses</h1>
 
       <section className="flex flex-row flex-wrap gap-y-12 gap-x-4 justify-evenly ">
         {courses.map(c => <CourseCard courseDetails={c} />)}
