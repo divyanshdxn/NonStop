@@ -1,8 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { baseUrl } from "../app/api/hello/route";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 
 interface NavLinkProps {
   children: React.ReactNode;
@@ -24,9 +27,28 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   );
 };
 
+
 export const Navbar = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [,, removeCookie] = useCookies(['connect.sid']);
+
+
+  useEffect(() => {
+    axios.get(`${baseUrl}/account`,{withCredentials: true}).then((res) => {
+      setIsLoggedIn(res.data.loggedIn);
+    });
+  }, []); 
+
+  const logout = () => {
+    axios.post(`${baseUrl}/logout`).then(() => {
+    setIsLoggedIn(false)
+    })
+    removeCookie('connect.sid')
+  }  
+
   return (
-    <nav className="relative px-8 py-4 flex justify-between items-center border-y border-gray-400 dark:border-gray-700">
+    <nav className="relative px-8 h-16 flex justify-between items-center border-y border-gray-400 dark:border-gray-700">
       {/* Home */}
       <Link
         className="text-3xl font-bold leading-none flex items-center space-x-4"
@@ -81,21 +103,26 @@ export const Navbar = () => {
         </li>
       </ul>
       <div className="hidden lg:block">
-        <NavLink href={"profile"}><div className="flex items-center space-x-2">
-          <img
-            className="inline-block w-12 h-12 rounded-full"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt="John Doe"
-          />
-          <span className="flex flex-col">
-            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-              Soumya Ranjan
+        {isLoggedIn ? (
+          <div className="flex items-center space-x-8">
+            <img
+              className="inline-block w-12 h-12 rounded-full"
+              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+              alt="John Doe"
+            />
+            <span className="flex flex-col">
+              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                Soumya Ranjan
+              </span>
+              <span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
+                View Profile
+              </span>
             </span>
-            <span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
-              View Profile
-            </span>
-          </span>
-        </div></NavLink>
+            <button className="bg-green-600 px-4 py-2 rounded-full" onClick={_ => logout()}>Logout</button>
+          </div>
+        ) : (
+          <a href={`${baseUrl}/auth/google`}><button className="bg-green-600 px-4 py-2 rounded-full">Signup with Goggle</button></a>
+        )}
       </div>
     </nav>
   );
