@@ -27,6 +27,11 @@ NonStop seeks to empower athletes, enhance the sports community, streamline even
 3. Create a `.env` file with the following variables:
 4. Run the development server: `npm run dev`
 
+## Links
+1. Project is Live : [`Project Link`](https://nonstop.sranjan.co.in/)
+2. Documentation of proposed solution : [`Doc Link`](https://docs.google.com/document/d/1UshzBBzIouAou-u9EigGTeGOsWvkQ7uHinWHbZ0XECc/edit?usp=sharing)
+3. Introductory Video for our product : [`Video Link`]() 
+
 ## Samples
 ![Homepage](https://github.com/divyanshdxn/NonStop/blob/main/samples/homepage.jpeg)
 
