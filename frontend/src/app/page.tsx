@@ -52,26 +52,30 @@ const categoryItem: CategoryItem[] = [
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-practice.png?d=324x406",
-    texturl: "",
+    texturl: "learn.svg",
     highlightimageurl: "https://mythrill.onelink.me/fMFb/yt68v4j9",
+    href:"learn"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-compete.png?d=324x406",
-    texturl: "",
+    texturl: "compete.svg",
     highlightimageurl: "",
+    href:"/competitions"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-compete.png?d=324x406",
-    texturl: "",
+    texturl: "compete.svg",
     highlightimageurl: "",
+    href:"/competitions"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-mentorships.png?d=324x406",
-    texturl: "",
+    texturl: "mentorship.svg",
     highlightimageurl: "",
+    href:"/mentorship"
   },
 ];
 export default function Home() {
