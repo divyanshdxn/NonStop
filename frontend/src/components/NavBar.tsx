@@ -27,16 +27,63 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   );
 };
 
+/**
+ * 
+ * {id: '
+ * 110446717094334110090', 
+ * img: 'https://lh3.googleusercontent.com/a/AGNmyxageg3yWGP8zum7LQWlTh5kx_IAiEXx19zY4ch3eQ=s96-c',
+ *  email: null, 
+ * name: 'Divyansh Kushwaha', 
+ * createdAt: '2023-04-15T17:20:24.330Z', …}
+createdAt
+: 
+"2023-04-15T17:20:24.330Z"
+email
+: 
+null
+id
+: 
+"110446717094334110090"
+img
+: 
+"https://lh3.googleusercontent.com/a/AGNmyxageg3yWGP8zum7LQWlTh5kx_IAiEXx19zY4ch3eQ=s96-c"
+loggedIn
+: 
+true
+name
+: 
+"Divyansh Kushwaha"
+updatedAt
+: 
+null
+[[Prototype]]
+: 
+Object
+ */
+
+export interface User {
+  id: string,
+  img: string,
+  createdAt: string,
+  name: string,
+  updatedAt: string,
+  email: string
+}
+
 
 export const Navbar = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [,, removeCookie] = useCookies(['connect.sid']);
 
+  const [user, setUser] = useState<any>()
 
   useEffect(() => {
     axios.get(`${baseUrl}/account`,{withCredentials: true}).then((res) => {
       setIsLoggedIn(res.data.loggedIn);
+      const user: User = res.data
+      setUser(user)
+      window.localStorage.setItem("user", JSON.stringify(user))
     });
   }, []); 
 
@@ -107,16 +154,16 @@ export const Navbar = () => {
           <div className="flex items-center space-x-8">
             <img
               className="inline-block w-12 h-12 rounded-full"
-              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+              src={user.img}
               alt="John Doe"
             />
             <span className="flex flex-col">
               <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                Soumya Ranjan
+                {user.name}
               </span>
-              <span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
+              <NavLink href={"profile"}><span className="text-sm font-medium text-gray-500 dark:text-gray-400 cursor-pointer">
                 View Profile
-              </span>
+              </span></NavLink>
             </span>
             <button className="bg-green-600 px-4 py-2 rounded-full" onClick={_ => logout()}>Logout</button>
           </div>

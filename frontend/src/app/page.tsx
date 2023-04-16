@@ -52,26 +52,30 @@ const categoryItem: CategoryItem[] = [
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-practice.png?d=324x406",
-    texturl: "",
+    texturl: "learn.svg",
     highlightimageurl: "https://mythrill.onelink.me/fMFb/yt68v4j9",
+    href:"learn"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-compete.png?d=324x406",
-    texturl: "",
+    texturl: "compete.svg",
     highlightimageurl: "",
+    href:"/competitions"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-compete.png?d=324x406",
-    texturl: "",
+    texturl: "compete.svg",
     highlightimageurl: "",
+    href:"/competitions"
   },
   {
     imageurl:
       "https://cdn.unstop.com/uploads/images/home/home-hero-mentorships.png?d=324x406",
-    texturl: "",
+    texturl: "mentorship.svg",
     highlightimageurl: "",
+    href:"/mentorship"
   },
 ];
 export default function Home() {
@@ -88,9 +92,9 @@ export default function Home() {
               <p>Potential Platforms</p>
               <p>and Sports coaches from all over India!</p>
               <p className="content-center ml-6">
-                <button className="m-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                <a href="#navigate_to"><button className="m-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >
                   Explore Events
-                </button>
+                </button></a>
               </p>
             </div>
           </div>
@@ -115,7 +119,7 @@ export default function Home() {
       </div>
       <div className="flex w-9/12 flex-wrap p-6 m-5 justify-center gap-12">
         <div className="flex w-9/12 flex-wrap p-6 m-3">
-          <h3 className="text-4xl font-bold"> Recent Events </h3>
+          <h3 id="navigate_to" className="text-4xl font-bold"> Recent Events </h3>
         </div>
         {cp.map((i) => (
           <Eventcard eventDetails={eventDetails[i]} />
