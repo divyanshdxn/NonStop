@@ -148,6 +148,9 @@ export const Navbar = () => {
         <li>
           <NavLink href={"competitions"}>Competitions</NavLink>
         </li>
+        <li>
+          <NavLink href={"social"}>Social</NavLink>
+        </li>
       </ul>
       <div className="hidden lg:block">
         {isLoggedIn ? (
